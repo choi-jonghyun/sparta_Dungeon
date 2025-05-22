@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa2485ed61eabd4b9b74cb85627730a, type: 3}
   m_Name: Item_Rock
   m_EditorClassIdentifier: 
-  disPlayName: "\uB3CC"
+  displayName: "\uB3CC"
   description: "\uC2A4\uD53C\uB4DC \uC99D\uAC00"
   type: 0
   icon: {fileID: 21300000, guid: e61976ceaf6919c47853f5a7ea09288b, type: 3}
   dropPrefab: {fileID: 5077071070775717765, guid: 742b58f62c8b9f04dbace62f757ae5e8, type: 3}
   canStack: 1
   maxStackAmount: 12
-  consumables: []
+  consumables:
+  - type: 0
+    value: 0
