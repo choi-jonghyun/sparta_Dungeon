@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed;
     private Vector2 curMovementInput;
+    private float originalSpeed;
+    private Coroutine speedBoostCoroutine;
     public float jumpPower;
     public LayerMask groundLayerMask;
 
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        originalSpeed = moveSpeed;
     }
     private void FixedUpdate()
     {
@@ -102,6 +105,22 @@ public class PlayerController : MonoBehaviour
         cameraContainer.localEulerAngles = new Vector3(-camCurXRot, 0, 0);
 
         transform.eulerAngles += new Vector3(0, mouseDelta.x * lookSensitivity, 0);
+    }
+
+    public void ApplySpeedBoost(float amount, float duration)
+    {
+        if(speedBoostCoroutine != null) 
+            StopCoroutine(speedBoostCoroutine);
+
+        speedBoostCoroutine = StartCoroutine(SpeedBoostRoutine(amount, duration));
+    }
+
+    private IEnumerator SpeedBoostRoutine(float amount, float duration)
+    {
+        moveSpeed += amount;
+        yield return new WaitForSeconds(duration);
+        moveSpeed = originalSpeed;
+        speedBoostCoroutine = null;
     }
 
     bool IsGrounded()
