@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Jump : MonoBehaviour
 {
-    public float launchPower = 30f;
+    public float launchPower = 10f;
     public Vector3 launchDirection = Vector3.up;
 
     private void OnTriggerEnter(Collider other)
