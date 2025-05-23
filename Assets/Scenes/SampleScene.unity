@@ -2094,7 +2094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 1336868582}
-  hurger: {fileID: 1282957676}
+  hunger: {fileID: 1282957676}
   stamina: {fileID: 118560376}
 --- !u!114 &1087550797
 MonoBehaviour:
